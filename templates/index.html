@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Churn Prediction</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+  <div class="testbox">
+    <form method="post" action="/result/">
+      <a href="/">
+        <div class="banner">
+          <h1>Customer Churn Prediction</h1>
+        </div>
+      </a>
+      <br/>
+      <fieldset>
+        <legend>Demographic Information</legend>
+        <div class="question">
+          <h4>Gender<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="male" name="gender" value="Male" required/>
+              <label for="male" class="radio"><span>Male</span></label>
+            </div>
+            <div>
+              <input type="radio" id="female" name="gender" value="Female" required/>
+              <label for="female" class="radio"><span>Female</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer is a citizen or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="senior-citizen-yes" name="senior-citizen" value="Yes" required/>
+              <label for="senior-citizen-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="senior-citizen-no" name="senior-citizen" value="No" required/>
+              <label for="senior-citizen-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has a partner or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="partner-yes" name="partner" value="Yes" required/>
+              <label for="partner-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="partner-no" name="partner" value="No" required/>
+              <label for="partner-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has dependents or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="dependents-yes" name="dependents" value="Yes" required/>
+              <label for="dependents-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="dependents-no" name="dependents" value="No" required/>
+              <label for="dependents-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <br/>
+      <fieldset>
+        <legend>Account Information</legend>
+        <div class="item">
+          <h4>Tenure<span>*</span></h4>
+          <input type="number" name="tenure" value=0 required>
+        </div>
+        <div class="item">
+          <h4>Monthly Charges<span>*</span></h4>
+          <input type="number" name="monthly-charges" value=0 required>
+        </div>
+        <div class="item">
+          <h4>Total Charges<span>*</span></h4>
+          <input type="number" name="total-charges" value=0 required>
+        </div>
+        <div class="question">
+          <h4>The customer has paperless billing or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="paperless-billing-yes" name="paperless-billing" value="Yes" required/>
+              <label for="paperless-billing-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="paperless-billing-no" name="paperless-billing" value="No" required/>
+              <label for="paperless-billing-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <h4>Payment Method<span>*</span></h4>
+          <select name="payment-method" required>
+            <option selected value="" disabled selected></option>
+            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+            <option value="Credit card (automatic)">Credit card (automatic)</option>
+            <option value="Electronic check">Electronic check</option>
+            <option value="Mailed check">Mailed check</option>
+          </select>
+        </div>
+        <div class="item">
+          <h4>Contract<span>*</span></h4>
+          <select name="contract" required>
+            <option selected value="" disabled selected></option>
+            <option value="Month-to-month">Month-to-month</option>
+            <option value="One year">One year</option>
+            <option value="Two year">Two year</option>
+          </select>
+        </div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Subscribed Services</legend>
+        <div class="question">
+          <h4>The customer has a phone service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="phone-service-yes" name="phone-service" value="Yes" required/>
+              <label for="phone-service-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="phone-service-no" name="phone-service" value="No" required/>
+              <label for="phone-service-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has multiple lines service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="multiple-lines-yes" name="multiple-lines" value="Yes" required/>
+              <label for="multiple-lines-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input  type="radio" id="multiple-lines-no" name="multiple-lines" value="No" required/>
+              <label for="multiple-lines-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <h4>Internet Service Provider<span>*</span></h4>
+          <select name="internet-service" required>
+            <option selected value="" disabled selected></option>
+            <option value="Fiber optic">Fiber optic</option>
+            <option value="DSL">DSL</option>
+            <option value="No">No internet service</option>
+          </select>
+        </div>
+        <div class="question">
+          <h4>The customer has online security service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="online-security-yes" name="online-security" value="Yes" required/>
+              <label for="online-security-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="online-security-no" name="online-security" value="No" required/>
+              <label for="online-security-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has online backup service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="online-backup-yes" name="online-backup" value="Yes" required/>
+              <label for="online-backup-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="online-backup-no" name="online-backup" value="No" required/>
+              <label for="online-backup-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has device protection service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="device-protection-yes" name="device-protection" value="Yes" required/>
+              <label for="device-protection-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="device-protection-no" name="device-protection" value="No" required/>
+              <label for="device-protection-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has tech support service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="tech-support-yes" name="tech-support" value="Yes" required/>
+              <label for="tech-support-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="tech-support-no" name="tech-support" value="No" required/>
+              <label for="tech-support-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has streaming TV service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="streaming-tv-yes" name="streaming-tv" value="Yes" required/>
+              <label for="streaming-tv-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="streaming-tv-no" name="streaming-tv" value="No" required/>
+              <label for="streaming-tv-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <h4>The customer has streaming movies service or not?<span class="required">*</span></h4>
+          <div class="question-answer">
+            <div>
+              <input type="radio" id="streaming-movies-yes" name="streaming-movies" value="Yes" required/>
+              <label for="streaming-movies-yes" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <input type="radio" id="streaming-movies-no" name="streaming-movies" value="No" required/>
+              <label for="streaming-movies-no" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="btn-block">
+        <button type="submit">SUBMIT</button>
+      </div>
+      <div class="btn-block">
+        <button type="reset">RESET</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

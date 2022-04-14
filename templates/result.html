@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Churn Prediction</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+  <div class="testbox">
+    <div class="result-container">
+      <a href="/">
+        <div class="banner">
+          <h1>Customer Churn Prediction</h1>
+        </div>
+      </a>
+      <br>
+      <fieldset style="padding-bottom:20px">
+        <legend>Prediction Result</legend>
+        <p align="center" style="font-size:20px">
+          This customer is most likely going to
+        </p>
+        <br>
+        <p align="center" style="font-size:38px">
+          <strong>{{status}}</strong>
+        </p>
+      </fieldset>
+    </div>
+  </div>  
+</body>
+</html>
