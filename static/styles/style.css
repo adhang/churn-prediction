@@ -206,6 +206,11 @@ button:hover {
       width: 80%;
       margin: auto;
 }
+.social {
+      width:150px;
+      height:auto;
+      margin:auto;
+}
 @media (min-width: 568px) {
       .name-item, .city-item {
             display: flex;
