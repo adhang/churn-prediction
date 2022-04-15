@@ -55,13 +55,13 @@ def shap_plot(input_df):
     
     shap_status = ''
     if (shap_values_total > shap_values.base_values):
-        print(shap_values_total, 'Churn')
+        #print(shap_values_total, 'Churn')
         shap_status = 'greater than'
     elif (shap_values_total < shap_values.base_values):
-        print(shap_values_total, 'Retain')
+        #print(shap_values_total, 'Retain')
         shap_status = 'less than'
     else:
-        print('Cannot say')
+        #print('Cannot say')
         shap_status = 'the same as'
         
     # waterfall plot
@@ -105,7 +105,7 @@ def prediction_result():
     streaming_tv = request.form.get('streaming-tv')
     streaming_movies = request.form.get('streaming-movies')
     
-    #create new dataframe
+    # create dictionary from the input
     data = {'gender':gender,
             'senior_citizen':senior_citizen,
             'partner':partner,
@@ -127,11 +127,13 @@ def prediction_result():
             'streaming_movies':streaming_movies,
             }
     
+    # create dataframe
     input_df = pd.DataFrame(data, index=[0])
-    expected_value, shap_values_total, shap_status = shap_plot(input_df)
     
+    # make prediction
     y_pred = model.predict(input_df)
     
+    # convert prediction to text
     for i in y_pred:
       y_pred_int = int(i)
       if (y_pred_int == 0):
@@ -140,6 +142,9 @@ def prediction_result():
         prediction_result = 'Churn'
       else:
         prediction_result = 'Not defined'
+
+    # calculate shapley values
+    expected_value, shap_values_total, shap_status = shap_plot(input_df)
         
     #return the output and load result.html
     return render_template('result.html',
