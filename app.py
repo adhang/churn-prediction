@@ -13,9 +13,8 @@ from imblearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 
-
 #load the trained model.
-path = 'trained_model.pkl'
+path = 'static/model/trained_model.pkl'
 model = joblib.load(path)
 
 column_list = ['tenure', 'monthly_charges', 'total_charges', 'dependents_yes',
