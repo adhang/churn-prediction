@@ -26,8 +26,27 @@
         </p>
         <br>
         <p align="center" style="font-size:38px">
-          <strong>{{status}}</strong>
+          <strong>{{prediction_result}}</strong>
         </p>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Prediction Explanation</legend>
+        <div class="img-container">
+          <img class="img-content" src="{{ url_for('static',filename='images/waterfall.png') }}">
+        </div>
+        <br>
+        <div>
+          <p style="font-size:16px">
+            <strong>SHAP (SHapley Additive exPlanations)</strong> is a game theoretic approach to explain the output of any machine learning model. See <a class="reference external" href="https://github.com/slundberg/shap#citations">papers</a> for details and citations.
+          </p>
+          <br>
+          <p style="font-size:16px">
+            The <strong>expected value</strong> (E[f(x)]) of this model is <strong>{{expected_value}}</strong> and the prediction has <strong>{{shap_values_total}}</strong> as the sum of <strong>Shapley values</strong> (f(x)). Since the Shapley values is <strong>{{shap_status}}</strong> the expected value, the prediction result is <strong>{{prediction_result}}<strong>.
+          </p>
+        </div>
+        <br>
+        
       </fieldset>
     </div>
   </div>  
