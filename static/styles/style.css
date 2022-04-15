@@ -206,10 +206,20 @@ button:hover {
       width: 80%;
       margin: auto;
 }
+.footer p {
+      /*align-content: right;*/
+      text-align: right;
+}
+.social-container {
+      float:right;
+}
 .social {
-      width:150px;
+      width:120px;
       height:auto;
-      margin:auto;
+      float:left;
+      line-height:2px;
+      align-content: center;
+      /*text-align: center;*/
 }
 @media (min-width: 568px) {
       .name-item, .city-item {
