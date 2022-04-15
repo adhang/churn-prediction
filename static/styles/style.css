@@ -219,7 +219,7 @@ button:hover {
       float:left;
       line-height:2px;
       align-content: center;
-      /*text-align: center;*/
+      text-align: center;
 }
 @media (min-width: 568px) {
       .name-item, .city-item {
