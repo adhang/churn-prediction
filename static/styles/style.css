@@ -125,23 +125,16 @@ input[type="date"]::-webkit-inner-spin-button {
       cursor: pointer;
 }
 input[type=radio], input[type=checkbox]  {
-      display: none;
-      }
+      /*display: none;*/
+      opacity: 0.5;
+      cursor: pointer;
+      position: absolute;
+}
 label.radio {
       position: relative;
       display: inline-block;
       margin: 5px 20px 15px 0;
       cursor: pointer;
-}
-.question span {
-      margin-left: 30px;
-      }
-.question span.required{
-      margin-left: 0;
-      color: red;
-}
-.question-answer label {
-      display: block;
 }
 label.radio:before {
       content: "";
@@ -170,6 +163,22 @@ label.radio:after {
 }
 input[type=radio]:checked + label:after {
       opacity: 1;
+}
+.question span {
+      margin-left: 30px;
+}
+.question span.required{
+      margin-left: 0;
+      color: red;
+}
+.question-answer {
+      display: block;
+      position: relative;
+      padding-left: 20px;
+      cursor: pointer;
+}
+.question-answer label {
+      display: block;
 }
 .flax {
       display:flex;
@@ -223,7 +232,6 @@ button:hover {
       margin: auto;
 }
 .footer p {
-      /*align-content: right;*/
       text-align: right;
 }
 .social-container {
