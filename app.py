@@ -66,7 +66,7 @@ def shap_plot(input_df):
     # waterfall plot
     shap.waterfall_plot(shap_values, max_display=20, show=False)
     # plt.tight_layout()
-    plt.savefig('static/images/waterfall.png', bbox_inches='tight')
+    plt.savefig('static/images/shap-output.png', bbox_inches='tight')
     plt.show()
     
     return expected_value, shap_values_total, shap_status
