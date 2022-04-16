@@ -182,21 +182,21 @@ input[type=radio]:checked + label:after {
       width: 50%;
       margin: 10px auto;
 }
-.button-submit {
+.button-blue {
       margin: 0 10px;
       display: inline-block;
       text-align: center;
 }
-.button-reset {
-      margin: 0 10px;
-      display: inline-block;
-      text-align: center;
-}
-.button-submit button {
+.button-blue button {
       background: #095484;
       color: #fff;
 }
-.button-reset button {
+.button-grey {
+      margin: 0 10px;
+      display: inline-block;
+      text-align: center;
+}
+.button-grey button {
       background:  #A6A6A6;
       color: #fff; 
 }
@@ -222,7 +222,7 @@ button:hover {
       width: 80%;
       margin: auto;
 }
-.footer-note p {
+.footer p {
       /*align-content: right;*/
       text-align: right;
 }
