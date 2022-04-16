@@ -136,11 +136,11 @@ def prediction_result():
     for i in y_pred:
       y_pred_int = int(i)
       if (y_pred_int == 0):
-        prediction_result = 'Retain'
+        prediction_result = 'retain'
       elif (y_pred_int == 1):
-        prediction_result = 'Churn'
+        prediction_result = 'churn'
       else:
-        prediction_result = 'Not defined'
+        prediction_result = 'not defined'
 
     # calculate shapley values
     expected_value, shap_values_total, shap_status = shap_plot(input_df)
