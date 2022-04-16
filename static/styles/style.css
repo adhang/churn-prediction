@@ -175,23 +175,39 @@ input[type=radio]:checked + label:after {
       display:flex;
       justify-content:space-around;
 }
-.btn-block {
-      margin-top: 10px;
-      text-align: center;
-      /*display: inline-block;*/
+.button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      margin: 10px auto;
 }
-.button-block{
-      margin: 0 auto;
+.button-submit {
+      margin: 0 10px;
       display: inline-block;
+      text-align: center;
+}
+.button-reset {
+      margin: 0 10px;
+      display: inline-block;
+      text-align: center;
+}
+.button-submit button {
+      background: #095484;
+      color: #fff;
+}
+.button-reset button {
+      background:  #A6A6A6;
+      color: #fff; 
 }
 button {
       width: 150px;
       padding: 10px;
       border: none;
       border-radius: 5px; 
-      background:  #095484; 
       font-size: 16px;
-      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1px;
       cursor: pointer;
 }
 button:hover {
@@ -211,13 +227,13 @@ button:hover {
       text-align: right;
 }
 .social-container {
-      float:right;
+      float: right;
 }
 .social {
-      width:120px;
-      height:auto;
-      float:left;
-      line-height:2px;
+      width: 120px;
+      height: auto;
+      float: left;
+      line-height: 2px;
       align-content: center;
       text-align: center;
 }
