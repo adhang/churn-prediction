@@ -12,6 +12,8 @@ import shap
 from imblearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
+from io import BytesIO
+import base64
 
 #load the trained model.
 path = 'static/model/trained_model.pkl'
@@ -63,13 +65,21 @@ def shap_plot(input_df):
         #print('Cannot say')
         shap_status = 'the same as'
         
-    # waterfall plot
-    shap.waterfall_plot(shap_values, max_display=20, show=False)
-    # plt.tight_layout()
-    plt.savefig('static/images/shap-output.svg', format='svg', bbox_inches='tight')
-    plt.show()
+    # save waterfall plot
+    # shap.waterfall_plot(shap_values, max_display=20, show=False)
+    # plt.savefig('static/images/shap-output.svg', format='svg', bbox_inches='tight')
+    # plt.show()
     
-    return expected_value, shap_values_total, shap_status
+    # create temporary file to save the waterfall plot
+    tmpfile = BytesIO()
+    shap.waterfall_plot(shap_values, max_display=20, show=False)
+    plt.savefig(tmpfile, format='svg', bbox_inches='tight')
+    plt.show()
+
+    # encode the shap plot into base64
+    shap_encoded = base64.b64encode(tmpfile.getvalue()).decode('utf8')
+    
+    return expected_value, shap_values_total, shap_status, shap_encoded
     
 app = Flask(__name__)
 
@@ -143,14 +153,15 @@ def prediction_result():
         prediction_result = 'not defined'
 
     # calculate shapley values
-    expected_value, shap_values_total, shap_status = shap_plot(input_df)
+    expected_value, shap_values_total, shap_status, shap_encoded = shap_plot(input_df)
         
     #return the output and load result.html
     return render_template('result.html',
                            prediction_result=prediction_result,
                            expected_value=expected_value.round(3),
                            shap_values_total=shap_values_total.round(3),
-                           shap_status=shap_status)
+                           shap_status=shap_status,
+                           shap_encoded=shap_encoded)
 
 if __name__ == "__main__":
     app.run()

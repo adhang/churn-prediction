@@ -43,7 +43,8 @@
       <fieldset>
         <legend>Prediction Explanation</legend>
         <div class="img-container">
-          <img class="img-content" src="{{ url_for('static',filename='images/shap-output.svg') }}">
+          <!-- <img class="img-content" src="{{ url_for('static',filename='images/shap-output.svg') }}"> -->
+          <img class="img-content" src="data:image/svg+xml;base64,{{shap_encoded}}">
         </div>
         <br>
         <div>
