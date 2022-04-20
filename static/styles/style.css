@@ -6,7 +6,7 @@ body, div, form, input, select, textarea, label, p {
       margin: 0;
       outline: none;
       font-family: Roboto, Arial, sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       color: #666;
       line-height: 22px;
 }
@@ -24,8 +24,14 @@ h1 {
       z-index: 2;
       line-height: 83px;
 }
-h4 {
+/*h4 {
       margin: 25px 0 5px;
+      font-size: 24px;
+}*/
+.question-text {
+      margin: 25px 0 5;
+      font-size: 16px;
+      font-weight: bolder;
 }
 textarea {
       width: calc(100% - 12px);
@@ -102,7 +108,7 @@ textarea {
       position: relative;
       margin: 10px 0;
 }
-.item span {
+.item span.required {
       color: red;
 }
 input[type="date"]::-webkit-inner-spin-button {
@@ -190,6 +196,7 @@ input[type=radio]:checked + label:after {
       align-items: center;
       width: 50%;
       margin: 10px auto;
+      padding: 5px;
 }
 .button-blue {
       margin: 0 10px;
