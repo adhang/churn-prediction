@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Adhang Muntaha">
+
   <title>Customer Churn Prediction</title>
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
@@ -49,11 +53,11 @@
         <br>
         <div>
           <p style="font-size:16px">
-            <strong>SHAP (SHapley Additive exPlanations)</strong> is a game theoretic approach to explain the output of any machine learning model. See <a class="reference external" href="https://github.com/slundberg/shap#citations">papers</a> for details and citations.
+            The above plot is a SHAP plot. The <strong>expected value</strong> (E[f(x)]) of this model is <strong>{{expected_value}}</strong> and the prediction has <strong>{{shap_values_total}}</strong> as the sum of <strong>Shapley values</strong> (f(x)). Since the total Shapley values is <strong>{{shap_status}}</strong> the expected value, the prediction result is <strong>{{prediction_result}}</strong>.
           </p>
           <br>
           <p style="font-size:16px">
-            The <strong>expected value</strong> (E[f(x)]) of this model is <strong>{{expected_value}}</strong> and the prediction has <strong>{{shap_values_total}}</strong> as the sum of <strong>Shapley values</strong> (f(x)). Since the total Shapley values is <strong>{{shap_status}}</strong> the expected value, the prediction result is <strong>{{prediction_result}}</strong>.
+            <strong>SHAP (SHapley Additive exPlanations)</strong> is a game theoretic approach to explain the output of any machine learning model. See <a class="reference external" href="https://github.com/slundberg/shap#citations">papers</a> for details and citations.
           </p>
         </div>
         <br>
@@ -64,20 +68,26 @@
         </div>
       </div>
       <br>
+      <!-- Footer -->
       <div class="footer">
         <hr>
         <p>
           <strong>© 2022 Adhang Muntaha Muhammad</strong>
           <br>
+          <!-- Social badge -->
           <div class="social-container">
+            <!-- Linkedin badge-->
             <div class="social" style="cursor:pointer; background-color:#0077B5;" onclick="window.open('https://www.linkedin.com/in/adhangmuntaha/', '_blank').focus();">
               <img src="https://img.shields.io/badge/linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/adhangmuntaha/" alt="LinkedIn">
             </div>
+            <!-- Github badge -->
             <div class="social" style="cursor:pointer; background-color:#121011;" onclick="window.open('https://github.com/adhang', '_blank').focus();">
               <img src="https://img.shields.io/badge/github-121011?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/adhang" alt="GitHub">
             </div>
           </div>
         </p>
+
+        <!-- Credit -->
         <br><br>
         <hr>
         <p>
@@ -87,7 +97,6 @@
             Banner image from <a href="https://www.sogeti.com/why-us/proven-expertise/swedish-telecommunication-company/">Sogeti</a>
             |
             Umbrella icons created by <a href="https://www.flaticon.com/free-icons/umbrella" title="umbrella icons">photo3idea_studio &mdash; Flaticon</a>
-            <br>
           </small>
         </p>
       </div>
